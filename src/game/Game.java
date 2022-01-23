@@ -13,7 +13,7 @@ public class Game {
 	
 	public void run() {
 	Random random = new Random();
-	GameObject randomObject = objects[random.nextInt(3)];
+	GameObject randomObject = objects[random.nextInt(objects.length)];
 	
 
 		System.out.println("Game running");
