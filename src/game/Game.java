@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Random;
+
 import game.objects.GameObject;
 import game.objects.Paper;
 import game.objects.Rock;
@@ -9,10 +11,13 @@ public class Game {
 	
 	private GameObject[] objects = {new Rock(), new Paper(), new Scissors()};
 	
-	Random random = new Random();
-	randomGameObject = random
 	public void run() {
+	Random random = new Random();
+	GameObject randomObject = objects[random.nextInt(objects.length)];
+	
+
 		System.out.println("Game running");
+		System.out.println(randomObject);
 	}
 	
 }
