@@ -11,6 +11,10 @@ public class GameObject {
 			/* scissors */	{-1,	1,		0}
 	};
 	
+	public int compareTo(GameObject other) {
+		return comparison[this.id][other.id];
+	}
+	
 	protected void setId(int id) {
 		this.id = id;
 	}
