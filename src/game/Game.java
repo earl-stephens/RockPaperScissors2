@@ -11,13 +11,16 @@ import game.objects.Scissors;
 public class Game {
 	
 	private GameObject[] objects = {new Rock(), new Paper(), new Scissors()};
+	private int counter = 0;
 	
 	public void run() {
 	String[] results = {"Draw", "Win", "Lose"};
-	
-	System.out.println("Game running");
-	Random random = new Random();
 	Scanner scanner = new Scanner(System.in);
+	
+	//System.out.println("Game running");
+	do {
+	Random random = new Random();
+	
 	
 	GameObject randomObject1 = objects[random.nextInt(objects.length)];
 	
@@ -31,8 +34,13 @@ public class Game {
 	
 	//System.out.println(randomObject1.compareTo(randomObject2));
 	int resultsIndex = randomObject2.compareTo(randomObject1);
+	if(resultsIndex != 0) {
+		counter++;
+	}
 	System.out.println(results[resultsIndex]);
 	
+
+	} while(counter < 3);
 	scanner.close();
 	}
 	
