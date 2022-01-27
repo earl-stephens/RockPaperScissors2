@@ -12,6 +12,7 @@ public class Game {
 	
 	private GameObject[] objects = {new Rock(), new Paper(), new Scissors()};
 	private int counter = 0;
+	private int winLossCounter = 0;
 	
 	public void run() {
 	String[] results = {"Draw", "Win", "Lose"};
@@ -34,14 +35,29 @@ public class Game {
 	
 	//System.out.println(randomObject1.compareTo(randomObject2));
 	int resultsIndex = randomObject2.compareTo(randomObject1);
+	
 	if(resultsIndex != 0) {
 		counter++;
 	}
-	System.out.println(results[resultsIndex]);
 	
+	if(resultsIndex == 1) {
+		winLossCounter++;
+	}
+	
+	System.out.println(results[resultsIndex]);
 
 	} while(counter < 3);
+	
 	scanner.close();
+	announceWinner();
+	}
+	
+	private void announceWinner() {
+		if(winLossCounter >= 2) {
+			System.out.println("You Won!");
+		} else {
+			System.out.println("The computer won.");
+		}
 	}
 	
 }
