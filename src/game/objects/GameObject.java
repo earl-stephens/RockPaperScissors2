@@ -6,9 +6,9 @@ public class GameObject implements Comparable<GameObject> {
 	
 	private int[][] comparison = {
 			//				rock	paper	scissors
-			/* rock */		{0,		-1,		1},
-			/* paper */		{1,		0,		-1},
-			/* scissors */	{-1,	1,		0}
+			/* rock */		{0,		2,		1},
+			/* paper */		{1,		0,		2},
+			/* scissors */	{2,		1,		0}
 	};
 	
 	//relates to the Comparable interface that is implemented
