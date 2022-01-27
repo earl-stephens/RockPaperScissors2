@@ -18,33 +18,23 @@ public class Game {
 	String[] results = {"Draw", "Win", "Lose"};
 	Scanner scanner = new Scanner(System.in);
 	
-	//System.out.println("Game running");
+	/* This is a game loop.  It's waiting on user input
+	 * and keeps running until the input is provided.
+	 */
 	do {
-	Random random = new Random();
-	
-	
-	GameObject randomObject1 = objects[random.nextInt(objects.length)];
-	
-	System.out.println("Enter 1 for Rock, 2 for Paper, 3 for Scissors.");
-	GameObject randomObject2 = objects[scanner.nextInt() - 1];
-	//GameObject randomObject2 = objects[random.nextInt(objects.length)];
+		Random random = new Random();
+		GameObject randomObject1 = objects[random.nextInt(objects.length)];
+		
+		System.out.println("Enter 1 for Rock, 2 for Paper, 3 for Scissors.");
+		GameObject randomObject2 = objects[scanner.nextInt() - 1];
 
+		displayWinner(randomObject1, randomObject2);
+		
+		int resultsIndex = randomObject2.compareTo(randomObject1);
+		updateCounter(resultsIndex);
+		updateWinLossCounter(resultsIndex);
 
-	System.out.println("The computer chose: " + randomObject1);
-	System.out.println("You chose: " + randomObject2);
-	
-	//System.out.println(randomObject1.compareTo(randomObject2));
-	int resultsIndex = randomObject2.compareTo(randomObject1);
-	
-	if(resultsIndex != 0) {
-		counter++;
-	}
-	
-	if(resultsIndex == 1) {
-		winLossCounter++;
-	}
-	
-	System.out.println(results[resultsIndex]);
+		System.out.println(results[resultsIndex]);
 
 	} while(counter < 3);
 	
@@ -58,6 +48,24 @@ public class Game {
 		} else {
 			System.out.println("The computer won.");
 		}
+	}
+	
+	private void displayWinner(GameObject randomObject1, GameObject randomObject2) {
+		System.out.println("The computer chose: " + randomObject1);
+		System.out.println("You chose: " + randomObject2);
+	}
+	
+	private void updateCounter(int resultsIndex) {
+		if(resultsIndex != 0) {
+			counter++;
+		}
+	}
+	
+	private void updateWinLossCounter(int resultsIndex) {
+		if(resultsIndex == 1) {
+			winLossCounter++;
+		}
+		
 	}
 	
 }
