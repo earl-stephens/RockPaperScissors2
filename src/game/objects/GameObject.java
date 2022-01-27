@@ -35,7 +35,7 @@ public class GameObject implements Comparable<GameObject> {
 	}
 	
 	public String toString() {
-		return "GameObject ID = " + id + ", name = " + name;
+		return name;
 	}
 	
 }
