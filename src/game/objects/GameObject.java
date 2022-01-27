@@ -1,16 +1,19 @@
 package game.objects;
 
-public class GameObject {
+public class GameObject implements Comparable<GameObject> {
 	private int id;
 	private String name;
 	
 	private int[][] comparison = {
 			//				rock	paper	scissors
-			/* rock */		{0,		-1,		1},
-			/* paper */		{1,		0,		-1},
-			/* scissors */	{-1,	1,		0}
+			/* rock */		{0,		2,		1},
+			/* paper */		{1,		0,		2},
+			/* scissors */	{2,		1,		0}
 	};
 	
+	//relates to the Comparable interface that is implemented
+	//in the class method
+	@Override
 	public int compareTo(GameObject other) {
 		return comparison[this.id][other.id];
 	}
@@ -32,7 +35,7 @@ public class GameObject {
 	}
 	
 	public String toString() {
-		return "GameObject ID = " + id + ", name = " + name;
+		return name;
 	}
 	
 }
